@@ -13,10 +13,10 @@ export default function Showcase() {
   const rotate = useTransform(scrollYProgress, [0, 1], [-4, 4]);
 
   return (
-    <section id="why" ref={ref} className="relative py-32 overflow-hidden">
+    <section id="why" ref={ref} className="relative py-20 overflow-hidden">
       {/* Aurora background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1200px] h-[700px] rounded-full bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-violet-500/20 blur-[140px] opacity-70" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1100px] h-[600px] rounded-full bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-violet-500/20 blur-[100px] opacity-70" />
       </div>
 
       <div className="container-prose">
@@ -52,7 +52,7 @@ export default function Showcase() {
         </div>
 
         {/* 3D-style orbital visual */}
-        <div className="relative mt-20 mx-auto max-w-5xl perspective-1000">
+        <div className="relative mt-14 mx-auto max-w-5xl perspective-1000">
           <motion.div
             style={{ rotate, y: y1 }}
             className="relative aspect-[16/10] glass-strong rounded-[2rem] p-6 md:p-10 shadow-[0_60px_120px_-40px_rgba(34,211,238,0.35)]"

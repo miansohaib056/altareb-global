@@ -32,10 +32,10 @@ const cols = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/5 mt-12">
+    <footer className="relative border-t border-white/5 mt-8">
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink-900 to-transparent" />
 
-      <div className="container-prose py-16">
+      <div className="container-prose py-12">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
             <a href="#top" className="flex items-center gap-2.5 group">

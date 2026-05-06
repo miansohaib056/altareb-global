@@ -30,7 +30,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="relative py-32">
+    <section className="relative py-20">
       <div className="container-prose">
         <div className="max-w-3xl">
           <motion.span
@@ -52,7 +52,7 @@ export default function Testimonials() {
           </motion.h2>
         </div>
 
-        <div className="mt-14 grid lg:grid-cols-3 gap-5">
+        <div className="mt-10 grid lg:grid-cols-3 gap-5">
           {testimonials.map((t, i) => (
             <motion.figure
               key={t.name}

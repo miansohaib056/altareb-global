@@ -37,7 +37,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section id="results" className="relative py-32">
+    <section id="results" className="relative py-20">
       <div className="absolute inset-0 -z-10 bg-radial-fade opacity-50" />
 
       <div className="container-prose">
@@ -61,7 +61,7 @@ export default function Stats() {
           </motion.h2>
         </div>
 
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {stats.map((s, i) => (
             <StatCard key={s.label} stat={s} index={i} />
           ))}
@@ -73,7 +73,7 @@ export default function Stats() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-12 glass-strong rounded-3xl p-8 md:p-10 grid md:grid-cols-3 gap-8 items-center text-center md:text-left"
+          className="mt-10 glass-strong rounded-3xl p-8 md:p-10 grid md:grid-cols-3 gap-8 items-center text-center md:text-left"
         >
           <div>
             <div className="font-display text-5xl font-bold text-gradient-cv">1,000+</div>

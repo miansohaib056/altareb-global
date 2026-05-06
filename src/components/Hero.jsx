@@ -15,14 +15,14 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate min-h-[100svh] flex items-center pt-32 pb-24 overflow-hidden"
+      className="relative isolate min-h-[92svh] flex items-center pt-28 pb-16 overflow-hidden"
     >
       {/* Background layers */}
       <div className="absolute inset-0 grid-bg" />
       <ParticleField />
       <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-hero-glow blur-2xl" />
-      <div className="pointer-events-none absolute top-1/3 -left-32 w-[480px] h-[480px] rounded-full bg-cyan-500/15 blur-[120px]" />
-      <div className="pointer-events-none absolute bottom-0 -right-24 w-[560px] h-[560px] rounded-full bg-violet-500/15 blur-[120px]" />
+      <div className="pointer-events-none absolute top-1/3 -left-32 w-[420px] h-[420px] rounded-full bg-cyan-500/15 blur-[90px]" />
+      <div className="pointer-events-none absolute bottom-0 -right-24 w-[480px] h-[480px] rounded-full bg-violet-500/15 blur-[90px]" />
 
       <div className="container-prose relative z-10 grid lg:grid-cols-12 gap-14 items-center">
         {/* Copy */}

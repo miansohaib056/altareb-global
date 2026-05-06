@@ -70,7 +70,7 @@ const agents = [
 
 export default function AIAgents() {
   return (
-    <section id="agents" className="relative py-32">
+    <section id="agents" className="relative py-20">
       <div className="absolute inset-0 -z-10 grid-bg opacity-60" />
 
       <div className="container-prose">
@@ -106,7 +106,7 @@ export default function AIAgents() {
           </motion.p>
         </div>
 
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {agents.map((a, i) => (
             <AgentCard key={a.name} agent={a} index={i} />
           ))}

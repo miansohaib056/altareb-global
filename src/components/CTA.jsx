@@ -3,7 +3,7 @@ import { ArrowRight, PhoneCall, Mail } from 'lucide-react';
 
 export default function CTA() {
   return (
-    <section id="contact" className="relative py-28">
+    <section id="contact" className="relative py-16">
       <div className="container-prose">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
@@ -17,8 +17,8 @@ export default function CTA() {
           <div className="absolute inset-[1px] rounded-[2.45rem] bg-ink-950/95 backdrop-blur-xl" />
 
           {/* glows */}
-          <div className="absolute -top-32 left-1/4 w-[600px] h-[600px] rounded-full bg-cyan-500/20 blur-[140px]" />
-          <div className="absolute -bottom-32 right-1/4 w-[600px] h-[600px] rounded-full bg-violet-500/20 blur-[140px]" />
+          <div className="absolute -top-32 left-1/4 w-[520px] h-[520px] rounded-full bg-cyan-500/20 blur-[100px]" />
+          <div className="absolute -bottom-32 right-1/4 w-[520px] h-[520px] rounded-full bg-violet-500/20 blur-[100px]" />
 
           {/* shimmering grid */}
           <div className="absolute inset-0 grid-bg opacity-50" />

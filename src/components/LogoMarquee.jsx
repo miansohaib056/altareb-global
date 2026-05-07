@@ -7,7 +7,7 @@ const logos = [
 
 export default function LogoMarquee() {
   return (
-    <section className="relative py-10 border-y border-white/5 bg-white/[0.015]">
+    <section className="relative py-8 md:py-10 border-y border-white/5 bg-white/[0.015]">
       <div className="container-prose text-center mb-6">
         <p className="text-xs uppercase tracking-[0.25em] text-slate-400">
           Integrates with your stack — EHR, clearinghouse, and payer portals

@@ -160,6 +160,10 @@
     -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
   }
 
+  .testimonial-track::-webkit-scrollbar {
+    display: none;
+  }
+
   .ring-gradient {
     background: conic-gradient(from 0deg, #22d3ee, #8b5cf6, #d946ef, #22d3ee);
   }

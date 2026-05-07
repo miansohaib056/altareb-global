@@ -33,7 +33,7 @@ export default function HowItWorks() {
   const ref = useRef(null);
 
   return (
-    <section id="about" ref={ref} className="relative py-20">
+    <section id="about" ref={ref} className="relative py-12 md:py-20">
       <div className="container-prose grid lg:grid-cols-12 gap-16 items-start">
         <div className="lg:col-span-5 lg:sticky lg:top-32">
           <motion.span

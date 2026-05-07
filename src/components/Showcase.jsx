@@ -13,7 +13,7 @@ export default function Showcase() {
   const rotate = useTransform(scrollYProgress, [0, 1], [-4, 4]);
 
   return (
-    <section id="why" ref={ref} className="relative py-20 overflow-hidden">
+    <section id="why" ref={ref} className="relative py-12 md:py-20 overflow-hidden">
       {/* Aurora background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1100px] h-[600px] rounded-full bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-violet-500/20 blur-[100px] opacity-70" />

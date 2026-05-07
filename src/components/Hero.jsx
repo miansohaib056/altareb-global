@@ -15,7 +15,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate min-h-[92svh] flex items-center pt-28 pb-16 overflow-hidden"
+      className="relative isolate min-h-[92svh] flex items-center pt-24 pb-10 md:pt-28 md:pb-16 overflow-hidden"
     >
       {/* Background layers */}
       <div className="absolute inset-0 grid-bg" />
@@ -46,34 +46,11 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             custom={1}
-            className="mt-6 font-display text-[clamp(2.4rem,6vw,4.5rem)] leading-[1.05] font-bold tracking-tight"
+            className="mt-6 font-display text-[40px] leading-[1.2] font-bold tracking-tight text-white"
           >
-            <span className="text-gradient">Autonomous AI agents</span>
-            <br />
-            for <span className="relative inline-block">
-              medical billing
-              <svg
-                className="absolute -bottom-2 left-0 w-full"
-                height="10"
-                viewBox="0 0 300 10"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d="M2 7 Q 75 2 150 6 T 298 5"
-                  fill="none"
-                  stroke="url(#u)"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-                <defs>
-                  <linearGradient id="u" x1="0" x2="1">
-                    <stop offset="0" stopColor="#22d3ee" />
-                    <stop offset="1" stopColor="#a855f7" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </span>{' '}
-            that secure <span className="text-gradient-cv">99% clean claims</span>.
+            RCM Automation with Advanced AI Agents{' '}
+            <span className="font-light text-slate-500/70 mx-1">|</span>{' '}
+            <span className="text-gradient-cv">Secure 99% Clean Claims</span>
           </motion.h1>
 
           <motion.p

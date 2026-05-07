@@ -70,7 +70,7 @@ const agents = [
 
 export default function AIAgents() {
   return (
-    <section id="agents" className="relative py-20">
+    <section id="agents" className="relative py-12 md:py-20">
       <div className="absolute inset-0 -z-10 grid-bg opacity-60" />
 
       <div className="container-prose">
@@ -108,7 +108,12 @@ export default function AIAgents() {
 
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {agents.map((a, i) => (
-            <AgentCard key={a.name} agent={a} index={i} />
+            <AgentCard
+              key={a.name}
+              agent={a}
+              index={i}
+              isLastOrphan={i === agents.length - 1 && agents.length % 3 !== 0}
+            />
           ))}
         </div>
       </div>
@@ -116,15 +121,20 @@ export default function AIAgents() {
   );
 }
 
-function AgentCard({ agent, index }) {
+function AgentCard({ agent, index, isLastOrphan }) {
   const Icon = agent.icon;
+  // When the final card lands alone in a row, span both tablet cols (capped width,
+  // auto-centered) and shift to the middle column on desktop.
+  const orphanClasses = isLastOrphan
+    ? 'sm:col-span-2 sm:justify-self-center sm:w-full sm:max-w-[calc(50%-10px)] lg:col-span-1 lg:col-start-2 lg:max-w-none'
+    : '';
   return (
     <motion.article
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.6, delay: (index % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
-      className="card-glow group relative glass rounded-3xl p-6 md:p-7 overflow-hidden"
+      className={`card-glow group relative glass rounded-3xl p-6 md:p-7 overflow-hidden ${orphanClasses}`}
     >
       {/* gradient hover halo */}
       <div

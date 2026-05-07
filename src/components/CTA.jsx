@@ -3,7 +3,7 @@ import { ArrowRight, PhoneCall, Mail } from 'lucide-react';
 
 export default function CTA() {
   return (
-    <section id="contact" className="relative py-16">
+    <section id="contact" className="relative py-10 md:py-16">
       <div className="container-prose">
         <motion.div
           initial={{ opacity: 0, y: 32 }}

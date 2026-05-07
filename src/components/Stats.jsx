@@ -37,7 +37,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section id="results" className="relative py-20">
+    <section id="results" className="relative py-12 md:py-20">
       <div className="absolute inset-0 -z-10 bg-radial-fade opacity-50" />
 
       <div className="container-prose">

@@ -179,7 +179,7 @@ export default function Testimonials() {
               type="button"
               onClick={prev}
               aria-label="Previous testimonials"
-              className="w-11 h-11 grid place-items-center rounded-full glass hover:border-cyan-400/40 transition-colors"
+              className="w-11 h-11 grid place-items-center rounded-full glass border-cyan-400/40 hover:!border-white/10 transition-colors"
             >
               <ChevronLeft className="w-5 h-5 text-slate-200" />
             </button>
@@ -187,7 +187,7 @@ export default function Testimonials() {
               type="button"
               onClick={next}
               aria-label="Next testimonials"
-              className="w-11 h-11 grid place-items-center rounded-full glass hover:border-cyan-400/40 transition-colors"
+              className="w-11 h-11 grid place-items-center rounded-full glass border-cyan-400/40 hover:!border-white/10 transition-colors"
             >
               <ChevronRight className="w-5 h-5 text-slate-200" />
             </button>

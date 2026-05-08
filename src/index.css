@@ -44,7 +44,7 @@
 
 @layer components {
   .container-prose {
-    @apply max-w-7xl mx-auto px-6 md:px-10;
+    @apply max-w-[88rem] mx-auto px-5 md:px-6 lg:px-8;
   }
 
   .glass {
@@ -79,30 +79,32 @@
     @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium text-white;
     background: linear-gradient(120deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
     background-size: 200% 200%;
-    box-shadow:
-      0 10px 30px -10px rgba(34, 211, 238, 0.5),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
-    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .btn-primary:hover {
     background-position: 100% 50%;
     box-shadow:
       0 18px 40px -10px rgba(139, 92, 246, 0.55),
       inset 0 1px 0 0 rgba(255, 255, 255, 0.35);
     transform: translateY(-2px);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn-primary:hover {
+    background-position: 0% 50%;
+    box-shadow:
+      0 10px 30px -10px rgba(34, 211, 238, 0.5),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
+    transform: translateY(0);
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium text-slate-200;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.10);
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium text-white;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(34, 211, 238, 0.4);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
   }
   .btn-ghost:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(34, 211, 238, 0.4);
-    color: white;
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.10);
+    color: rgb(226 232 240);
   }
 
   .chip {

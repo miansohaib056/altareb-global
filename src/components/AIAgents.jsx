@@ -1,13 +1,17 @@
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
 import {
   ShieldCheck,
   FileCheck2,
   Code2,
-  Send,
-  AlertOctagon,
-  TrendingUp,
-  Wallet,
+  Search,
+  Zap,
+  Coins,
+  CircleDollarSign,
+  Phone,
 } from 'lucide-react';
+import AgentDashboard from './AgentDashboard';
+import AgentElixaPanel from './AgentElixaPanel';
 
 const agents = [
   {
@@ -38,7 +42,7 @@ const agents = [
     name: 'CLAIR',
     role: 'Claims Agent',
     desc: 'Handles claim creation, scrubbing, and submission with automated error detection.',
-    icon: Send,
+    icon: Search,
     accent: 'from-violet-500 to-fuchsia-500',
     metric: { label: 'Clean claim rate', value: '99.99%' },
   },
@@ -46,15 +50,15 @@ const agents = [
     name: 'DEXA',
     role: 'Denials Agent',
     desc: 'Analyzes denial patterns, generates appeals, and prevents repeat denials.',
-    icon: AlertOctagon,
+    icon: Zap,
     accent: 'from-fuchsia-500 to-pink-500',
     metric: { label: 'Rejection cuts', value: '18–50%' },
   },
   {
-    name: 'ARIS',
+    name: 'ARIA',
     role: 'A/R Agent',
     desc: 'Automates A/R follow-ups and prioritizes high-value claims for recovery.',
-    icon: TrendingUp,
+    icon: Coins,
     accent: 'from-emerald-400 to-cyan-500',
     metric: { label: 'A/R recovery', value: '+15%' },
   },
@@ -62,15 +66,26 @@ const agents = [
     name: 'REMITA',
     role: 'Posting Agent',
     desc: 'Posts payments, reconciles remittances, and flags discrepancies in real-time.',
-    icon: Wallet,
+    icon: CircleDollarSign,
     accent: 'from-amber-400 to-orange-500',
     metric: { label: 'Reconciliation', value: 'Real-time' },
+  },
+  {
+    name: 'AVA',
+    role: 'Voice Agent',
+    desc: 'Automates patient and payer calls — verifying eligibility, checking auth status, and chasing A/R by voice.',
+    icon: Phone,
+    accent: 'from-rose-400 to-pink-500',
+    metric: { label: 'Calls / day', value: '8,200' },
   },
 ];
 
 export default function AIAgents() {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const activeAgent = agents[activeIdx];
+
   return (
-    <section id="agents" className="relative py-12 md:py-20">
+    <section id="agents" className="relative py-12 md:py-20 overflow-x-hidden">
       <div className="absolute inset-0 -z-10 grid-bg opacity-60" />
 
       <div className="container-prose">
@@ -92,7 +107,7 @@ export default function AIAgents() {
             transition={{ duration: 0.7 }}
             className="mt-5 font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gradient"
           >
-            Seven specialists.<br className="hidden md:block" /> One revenue cycle.
+            Eight specialists.<br className="hidden md:block" /> One revenue cycle.
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 24 }}
@@ -106,81 +121,97 @@ export default function AIAgents() {
           </motion.p>
         </div>
 
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {agents.map((a, i) => (
-            <AgentCard
-              key={a.name}
-              agent={a}
-              index={i}
-              isLastOrphan={i === agents.length - 1 && agents.length % 3 !== 0}
-            />
-          ))}
+        <div className="mt-12 grid lg:grid-cols-[280px_minmax(0,1fr)] gap-5">
+          {/* Tabs — horizontal scroll on mobile, vertical column on lg+ */}
+          <div
+            role="tablist"
+            aria-label="AI agents"
+            className="flex lg:flex-col gap-3 lg:gap-3.5 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 -mx-6 px-6 lg:mx-0 lg:px-0 snap-x snap-mandatory lg:snap-none"
+            style={{ scrollbarWidth: 'none' }}
+          >
+            {agents.map((a, i) => (
+              <AgentTab
+                key={a.name}
+                agent={a}
+                isActive={i === activeIdx}
+                onClick={() => setActiveIdx(i)}
+              />
+            ))}
+          </div>
+
+          {/* Active agent's dashboard */}
+          <div className="min-w-0 max-w-full">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeAgent.name}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                className="min-w-0"
+              >
+                {activeAgent.name === 'ELIXA' ? (
+                  <AgentElixaPanel agent={activeAgent} />
+                ) : (
+                  <AgentDashboard agent={activeAgent} />
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function AgentCard({ agent, index, isLastOrphan }) {
+function AgentTab({ agent, isActive, onClick }) {
   const Icon = agent.icon;
-  // When the final card lands alone in a row, span both tablet cols (capped width,
-  // auto-centered) and shift to the middle column on desktop.
-  const orphanClasses = isLastOrphan
-    ? 'sm:col-span-2 sm:justify-self-center sm:w-full sm:max-w-[calc(50%-10px)] lg:col-span-1 lg:col-start-2 lg:max-w-none'
-    : '';
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.6, delay: (index % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
-      className={`card-glow group relative glass rounded-3xl p-6 md:p-7 overflow-hidden ${orphanClasses}`}
+    <button
+      type="button"
+      role="tab"
+      aria-selected={isActive}
+      onClick={onClick}
+      className={`group relative shrink-0 lg:shrink min-w-[220px] lg:min-w-0 snap-start flex items-center gap-3 p-3.5 rounded-2xl text-left transition-all duration-300 ${
+        isActive
+          ? 'bg-white/[0.05] ring-1 ring-cyan-400/30 shadow-[0_8px_30px_-12px_rgba(34,211,238,0.4)]'
+          : 'bg-white/[0.02] ring-1 ring-white/5 hover:bg-white/[0.04] hover:ring-white/10'
+      }`}
     >
-      {/* gradient hover halo */}
-      <div
-        className={`pointer-events-none absolute -top-20 -right-20 w-56 h-56 rounded-full bg-gradient-to-br ${agent.accent} opacity-0 group-hover:opacity-30 blur-3xl transition-opacity duration-700`}
+      {/* active accent strip on the left edge */}
+      <span
+        className={`absolute left-0 top-3 bottom-3 w-1 rounded-full bg-gradient-to-b ${agent.accent} transition-opacity duration-300 ${
+          isActive ? 'opacity-100' : 'opacity-0'
+        }`}
       />
 
-      <div className="relative flex items-start justify-between">
+      <div
+        className={`relative w-10 h-10 rounded-xl bg-gradient-to-br ${agent.accent} grid place-items-center shadow-lg shrink-0`}
+      >
+        <Icon className="w-5 h-5 text-white" />
+        <div className="absolute inset-0 rounded-xl ring-1 ring-white/20" />
+      </div>
+      <div className="flex-1 min-w-0">
         <div
-          className={`relative w-12 h-12 rounded-2xl bg-gradient-to-br ${agent.accent} grid place-items-center shadow-lg`}
+          className={`font-display font-bold tracking-tight transition-colors ${
+            isActive ? 'text-white' : 'text-slate-200 group-hover:text-white'
+          }`}
         >
-          <Icon className="w-5 h-5 text-white" />
-          <div className="absolute inset-0 rounded-2xl ring-1 ring-white/20" />
+          {agent.name}
         </div>
-        <div className="text-right">
-          <div className="text-[10px] uppercase tracking-widest text-slate-400">
-            {agent.metric.label}
-          </div>
-          <div className="font-display text-lg font-bold text-white">{agent.metric.value}</div>
+        <div className="font-mono text-[11px] text-cyan-300/80 uppercase tracking-wider truncate">
+          {agent.role}
         </div>
       </div>
-
-      <div className="mt-6">
-        <div className="flex items-baseline gap-3">
-          <h3 className="font-display text-2xl font-bold text-white tracking-tight">
-            {agent.name}
-          </h3>
-          <span className="font-mono text-[11px] text-cyan-300/80 uppercase tracking-wider">
-            {agent.role}
-          </span>
-        </div>
-        <p className="mt-3 text-slate-300/90 text-[15px] leading-relaxed">{agent.desc}</p>
-      </div>
-
-      <div className="mt-6 flex items-center justify-between border-t border-white/5 pt-4">
-        <span className="text-[11px] text-slate-500 uppercase tracking-wider flex items-center gap-2">
+      {isActive && (
+        <span className="hidden lg:flex items-center gap-1 text-[10px] uppercase tracking-wider text-emerald-300">
           <span className="relative flex h-1.5 w-1.5">
             <span className="animate-ping absolute h-full w-full rounded-full bg-emerald-400 opacity-75" />
             <span className="relative rounded-full h-1.5 w-1.5 bg-emerald-400" />
           </span>
-          Active
+          Live
         </span>
-        <span className="text-xs text-slate-400 group-hover:text-white transition-colors flex items-center gap-1">
-          Learn more
-          <span className="transition-transform group-hover:translate-x-1">→</span>
-        </span>
-      </div>
-    </motion.article>
+      )}
+    </button>
   );
 }

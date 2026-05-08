@@ -35,9 +35,9 @@ export default function Footer() {
     <footer className="relative border-t border-white/5 mt-8">
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink-900 to-transparent" />
 
-      <div className="container-prose py-10 md:py-12">
-        <div className="grid lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-5">
+      <div className="container-prose py-12 md:py-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+          <div className="sm:col-span-2 lg:col-span-4">
             <a href="#top" className="flex items-center gap-2.5 group">
               <div className="relative w-10 h-10 rounded-xl overflow-hidden">
                 <div className="absolute inset-0 ring-gradient" />
@@ -49,7 +49,7 @@ export default function Footer() {
                 RCM<span className="text-gradient-cv">Automation</span>
               </span>
             </a>
-            <p className="mt-5 text-slate-400 max-w-md leading-relaxed">
+            <p className="mt-5 text-slate-400 max-w-xs lg:max-w-[19rem] leading-relaxed pr-4">
               Autonomous AI agents replacing manual medical billing — from eligibility to
               remittance. HIPAA-compliant, enterprise-secure, and built for the modern revenue
               cycle.
@@ -61,7 +61,7 @@ export default function Footer() {
                   key={i}
                   href="#"
                   aria-label="Social link"
-                  className="w-10 h-10 grid place-items-center rounded-xl glass hover:border-cyan-400/30 transition-colors"
+                  className="w-10 h-10 grid place-items-center rounded-xl glass border-cyan-400/30 hover:!border-white/10 transition-colors"
                 >
                   <Icon className="w-4 h-4 text-slate-300" />
                 </a>
@@ -87,10 +87,10 @@ export default function Footer() {
             </div>
           ))}
 
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-2">
             <div className="text-xs uppercase tracking-[0.2em] text-slate-400">Contact</div>
             <ul className="mt-4 space-y-2.5 text-sm">
-              <li className="text-slate-300">
+              <li className="text-slate-300 break-all">
                 <a href="mailto:info@rcmautomation.ai" className="hover:text-white">
                   info@rcmautomation.ai
                 </a>
@@ -109,7 +109,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-500">
             © {new Date().getFullYear()} RCM Automation. All rights reserved.
           </p>

@@ -73,21 +73,21 @@ export default function Stats() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-10 glass-strong rounded-3xl p-8 md:p-10 grid md:grid-cols-3 gap-8 items-center text-center md:text-left"
+          className="mt-10 glass-strong rounded-3xl p-8 md:p-10 grid md:grid-cols-3 gap-8 items-center"
         >
-          <div>
+          <div className="text-center md:text-left">
             <div className="font-display text-5xl font-bold text-gradient-cv">1,000+</div>
             <div className="text-slate-400 mt-1 text-sm uppercase tracking-wider">
               Provider clients
             </div>
           </div>
-          <div>
+          <div className="text-center">
             <div className="font-display text-5xl font-bold text-gradient-cv">1,000+</div>
             <div className="text-slate-400 mt-1 text-sm uppercase tracking-wider">
               Five-star reviews
             </div>
           </div>
-          <div>
+          <div className="text-center md:text-right">
             <div className="font-display text-5xl font-bold text-gradient-cv">98%</div>
             <div className="text-slate-400 mt-1 text-sm uppercase tracking-wider">
               Customer retention
@@ -129,7 +129,7 @@ function StatCard({ stat, index }) {
       <div
         className={`absolute -top-20 -right-20 w-48 h-48 rounded-full bg-gradient-to-br ${stat.accent} opacity-20 blur-3xl`}
       />
-      <motion.div className="relative font-display text-5xl md:text-6xl font-bold text-white tracking-tight">
+      <motion.div className="relative font-display text-[32px] leading-[1.15] font-bold text-white tracking-tight">
         {display}
       </motion.div>
       <div className="relative mt-3">

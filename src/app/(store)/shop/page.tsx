@@ -2,7 +2,7 @@ export const dynamic = "force-dynamic";
 
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
-import { Prisma } from "@/generated/prisma";
+import { Prisma } from "@/generated/prisma/client";
 import ShopClient from "@/components/products/ShopClient";
 
 export const metadata: Metadata = {

@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 import { auth } from "@/lib/auth";
-import { Role } from "@/generated/prisma";
+import { Role } from "@/generated/prisma/client";
 
 /**
  * Get the current authenticated user from the session (server-side).

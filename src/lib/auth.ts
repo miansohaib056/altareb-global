@@ -5,7 +5,7 @@ import Google from "next-auth/providers/google";
 import bcrypt from "bcryptjs";
 
 import { prisma } from "@/lib/prisma";
-import { Role } from "@/generated/prisma";
+import { Role } from "@/generated/prisma/client";
 import { authConfig } from "@/lib/auth.config";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({

@@ -9,9 +9,6 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "altarebglobal.com" },
     ],
   },
-  turbopack: {
-    root: __dirname,
-  },
   experimental: {
     serverActions: {
       bodySizeLimit: "2mb",

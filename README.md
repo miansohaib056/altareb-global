@@ -1,84 +1,36 @@
-# RCM Automation — Premium Redesign
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A reimagined, dark-themed, AI-startup-grade redesign of [rcmautomation.ai](https://rcmautomation.ai/).
+## Getting Started
 
-Built with **React + Vite + Tailwind CSS + Framer Motion**. All original messaging,
-agents, and brand identity preserved — visual language elevated.
-
-## Highlights
-
-- **Animated particle hero** (canvas-based, mouse-reactive, DPI-aware, paused offscreen)
-- **Glassmorphism** surfaces, conic-gradient glows, gradient strokes
-- **Scroll-driven parallax** in the product showcase
-- **Animated counters** for stats (Framer Motion `useMotionValue`)
-- **Sticky-rail "How it works"** with progress line
-- **Floating UI chips** around the hero dashboard mockup
-- **Marquee logo strip** with edge fade mask
-- **Fully responsive**, mobile-first, with reduced-motion support
-- **SEO meta** + OG tags + accessible nav + smooth scroll
-
-## File map
-
-```
-src/
-├── App.jsx                     # Section composition
-├── main.jsx                    # React root
-├── index.css                   # Tailwind layers + design tokens
-└── components/
-    ├── Navbar.jsx              # Sticky glass nav, mobile sheet
-    ├── Hero.jsx                # Headline + animated dashboard
-    ├── ParticleField.jsx       # Canvas particle background
-    ├── LogoMarquee.jsx         # Integrations strip
-    ├── AIAgents.jsx            # Seven-agent feature grid
-    ├── Showcase.jsx            # Orbital "neural network" visual
-    ├── HowItWorks.jsx          # 4-step sticky timeline
-    ├── Stats.jsx               # Animated counters
-    ├── Testimonials.jsx        # Social proof cards
-    ├── CTA.jsx                 # Conversion section
-    └── Footer.jsx              # Footer
-```
-
-## Run locally
-
-Requires **Node 18+** and npm.
+First, run the development server:
 
 ```bash
-# 1. Install dependencies
-npm install
-
-# 2. Start the dev server (http://localhost:5173)
 npm run dev
-
-# 3. Production build
-npm run build
-
-# 4. Preview the production build
-npm run preview
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Customizing
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- **Colors / brand** — edit `tailwind.config.js` (`theme.extend.colors`) and the
-  CSS gradient utilities in `src/index.css` (`.text-gradient`, `.btn-primary`, etc.).
-- **Typography** — fonts are loaded in `index.html`. Swap the `<link>` and update
-  `theme.extend.fontFamily` in `tailwind.config.js`.
-- **Content** — every section's copy lives at the top of its component file as a
-  plain JS array (e.g. `agents`, `steps`, `stats`, `testimonials`).
-- **Animations** — most timings live in each component's `transition` props.
-  Reduced-motion is honored globally via the `@media (prefers-reduced-motion)`
-  rule in `src/index.css`.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Performance notes
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-- Canvas particle field is RAF-driven and pauses on `visibilitychange`.
-- All scroll animations use Framer Motion's `viewport={{ once: true }}` so they
-  fire once and stop observing.
-- No images — all visuals are SVG, CSS gradients, or Lucide icons, keeping the
-  bundle small and infinitely crisp.
+## Learn More
 
-## Accessibility
+To learn more about Next.js, take a look at the following resources:
 
-- Semantic landmarks (`<header>`, `<main>`, `<footer>`, `<nav>`).
-- All interactive elements are real `<a>` / `<button>` with focus styles.
-- Decorative canvas marked `aria-hidden="true"`.
-- Color contrast meets WCAG AA on all text against the dark backdrop.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
